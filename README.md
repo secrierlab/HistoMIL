@@ -34,4 +34,4 @@ If you find a bug or want to suggest a new feature for HistoMIL, please open a G
 
 ## License
 
-HistoMIL is released under the MIT License. See the LICENSE file for more information.
+HistoMIL is released under the GNU-GPL License. See the LICENSE file for more information.
