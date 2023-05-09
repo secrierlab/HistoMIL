@@ -1,5 +1,5 @@
 # HistoMIL
-![alt text](https://github.com/RunningStone/HistoMIL/raw/main/logo.png)
+![alt text]([https://github.com/RunningStone/HistoMIL/raw/main/logo.png](https://github.com/secrierlab/HistoMIL/blob/main/logo.png)
 
 
 HistoMIL is a Python package for handling histopathology whole-slide images using multiple instance learning (MIL) techniques. With HistoMIL, you can create MIL datasets, train and evaluate MIL models, and make MIL predictions on new slide images.
