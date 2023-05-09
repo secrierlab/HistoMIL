@@ -20,7 +20,7 @@ conda activate histomil
 Next, install the required Python packages with pip:
 
 ```bash
-pip install -r requirements.txt
+pip install -r env.txt
 ```
 This will install all the packages listed in requirements.txt, including HistoMIL itself.
 
