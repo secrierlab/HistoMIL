@@ -22,7 +22,7 @@ Then install openslide and pytorch-gpu with following scripts.
 ```bash
 conda install -c conda-forge openslide
 conda install pytorch pytorch-cuda=11.7 -c pytorch -c nvidia
-```bash
+```
 
 Next, install the required Python packages with pip:
 
