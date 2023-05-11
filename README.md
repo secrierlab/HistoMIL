@@ -9,18 +9,27 @@ HistoMIL is a Python package for handling histopathology whole-slide images usin
 To use HistoMIL, you first need to create a conda environment with the required dependencies. You can do this by importing the env.yml file provided in this repository:
 
 ```bash
-conda env create -f env.yml
+conda create -n HistoMIL python=3.9
 ```
 This will create a new environment named histomil, which you can activate with:
 
 ```bash
-conda activate histomil
+conda activate HistoMIL
 ```
+
+Then install openslide and pytorch-gpu with following scripts.
+
+```bash
+conda install -c conda-forge openslide
+conda install pytorch pytorch-cuda=11.7 -c pytorch -c nvidia
+```bash
 
 Next, install the required Python packages with pip:
 
 ```bash
-pip install -r env.txt
+pip install pytorch-lightning=1.9
+pip install pandas openslide-python torchvision imageio matplotlib timm scikit-learn opencv-python h5py
+pip install wandb
 ```
 This will install all the packages listed in requirements.txt, including HistoMIL itself.
 
