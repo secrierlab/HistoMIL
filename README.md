@@ -6,7 +6,14 @@ HistoMIL is a Python package for handling histopathology whole-slide images usin
 
 ## Getting Started
 
-To use HistoMIL, you first need to create a conda environment with the required dependencies. You can do this by importing the env.yml file provided in this repository:
+To use HistoMIL, you first need to create a conda environment with the required dependencies.
+
+### create env with pre-defined file
+You can do this by importing the env.yml file provided in this repository:
+
+
+### create env manually 
+Also, you can create it manually.
 
 ```bash
 conda create -n HistoMIL python=3.9
