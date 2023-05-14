@@ -13,7 +13,7 @@ You can do this by importing the env.yml file provided in this repository:
 
 
 ### create env manually 
-Also, you can create it manually.
+Also, you can create it manually. (For windows user, please follow ![this](https://tia-toolbox.readthedocs.io/en/latest/installation.html) to install openslide.)
 
 ```bash
 conda create -n HistoMIL python=3.9
