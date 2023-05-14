@@ -11,9 +11,23 @@ To use HistoMIL, you first need to create a conda environment with the required 
 ### create env with pre-defined file
 You can do this by importing the env.yml file provided in this repository:
 
+### linux user pre-requests
+1. Create conda env
+```bash
+conda create -n HistoMIL python=3.9
+```
+This will create a new environment named histomil, which you can activate with:
 
-### create env manually 
-Also, you can create it manually. (For windows user, please follow [this](https://tia-toolbox.readthedocs.io/en/latest/installation.html) to install openslide.)
+```bash
+conda activate HistoMIL
+```
+
+### windows user pre-requests
+
+Windows (10+)
+1. Download OpenSlide binaries from this page. Extract the folder and add bin and lib subdirectories to Windows system path. If you are using a conda environment you can also copy bin and lib subdirectories to [Anaconda Installation Path]/envs/YOUR ENV/Library/.
+
+2. Install OpenJPEG. The easiest way is to install OpenJpeg is through conda using
 
 ```bash
 conda create -n HistoMIL python=3.9
@@ -23,6 +37,24 @@ This will create a new environment named histomil, which you can activate with:
 ```bash
 conda activate HistoMIL
 ```
+
+```bash
+C:\> conda install -c conda-forge openjpeg
+```
+
+### macOS user pre-requests
+On macOS there are two popular package managers, homebrew and macports.
+
+Homebrew
+```bash
+brew install openjpeg openslide
+```
+MacPorts
+```bash
+port install openjpeg openslide
+```
+
+### create env manually 
 
 Then install openslide and pytorch-gpu with following scripts.
 
@@ -39,6 +71,7 @@ pip install pandas openslide-python torchvision imageio matplotlib timm scikit-l
 pip install wandb
 ```
 This will install all the packages listed in requirements.txt, including HistoMIL itself.
+
 
 ## Usage
 
