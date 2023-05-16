@@ -11,7 +11,7 @@ To use HistoMIL, you first need to create a conda environment with the required 
 ### create env with pre-defined file
 You can do this by importing the env.yml file provided in this repository:
 
-### linux user pre-requests
+### linux user pre-requisites
 1. Create conda env
 ```bash
 conda create -n HistoMIL python=3.9
@@ -22,7 +22,7 @@ This will create a new environment named histomil, which you can activate with:
 conda activate HistoMIL
 ```
 
-### windows user pre-requests
+### windows user pre-requisites
 
 Windows (10+)
 1. Download OpenSlide binaries from this page. Extract the folder and add bin and lib subdirectories to Windows system path. If you are using a conda environment you can also copy bin and lib subdirectories to [Anaconda Installation Path]/envs/YOUR ENV/Library/.
@@ -42,7 +42,7 @@ conda activate HistoMIL
 C:\> conda install -c conda-forge openjpeg
 ```
 
-### macOS user pre-requests
+### macOS user pre-requisites
 On macOS there are two popular package managers, homebrew and macports.
 
 Homebrew
