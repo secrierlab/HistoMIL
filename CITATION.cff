@@ -1,0 +1,11 @@
+cff-version: 1.0.0
+message: "If you use this software, please cite it as below."
+authors:
+- family-names: "Pan"
+  given-names: "Shi"
+- family-names: "Secrier"
+  given-names: "Maria"
+title: "HistoMIL: a Python package for training Multiple Instance Learning models on histopathology slides."
+version: 1.0.0
+date-released: 2023-08-07
+url: "https://github.com/secrierlab/HistoMIL"
