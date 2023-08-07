@@ -1,5 +1,5 @@
 # HistoMIL
-![HistoMIL](https://github.com/secrierlab/HistoMIL/blob/main/logo_full.png)
+![HistoMIL](https://github.com/secrierlab/HistoMIL/blob/main/logo.png)
 
 ### Author: Shi Pan, UCL Genetics Institute
 
