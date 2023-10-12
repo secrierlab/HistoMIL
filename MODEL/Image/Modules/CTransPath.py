@@ -56,7 +56,8 @@ def ctranspath(ctranspath_ckpt_path=None):
             download_from_google_drive(url, output)
         except:
             print("ckpt can not be downloaded,check gdown or google drive")
-
+    if timm.__version__ != "0.5.4":
+        raise ValueError ("ctranspath need a modified version of timm==0.5.4 check https://drive.google.com/file/d/1JV7aj9rKqGedXY1TdDfi3dP07022hcgZ/view")
     model = timm.create_model('swin_tiny_patch4_window7_224', embed_layer=ConvStem, pretrained=False)
     td = torch.load(ctranspath_ckpt_path)
     model.load_state_dict(td['model'], strict=True)
