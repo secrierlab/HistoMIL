@@ -44,7 +44,7 @@ class ConvStem(nn.Module):
         x = self.norm(x)
         return x
 
-def ctranspath(ctranspath_ckpt_path=None):
+def ctranspath(ctranspath_ckpt_path=None,strict:bool=True):
     if ctranspath_ckpt_path is None:
         url = "https://drive.google.com/file/d/1DoDx_70_TLj98gTf6YTXnu4tFhsFocDX"
         try:
@@ -60,5 +60,5 @@ def ctranspath(ctranspath_ckpt_path=None):
         raise ValueError ("ctranspath need a modified version of timm==0.5.4 check https://drive.google.com/file/d/1JV7aj9rKqGedXY1TdDfi3dP07022hcgZ/view")
     model = timm.create_model('swin_tiny_patch4_window7_224', embed_layer=ConvStem, pretrained=False)
     td = torch.load(ctranspath_ckpt_path)
-    model.load_state_dict(td['model'], strict=True)
+    model.load_state_dict(td['model'], strict=strict)
     return model
