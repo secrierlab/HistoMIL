@@ -37,7 +37,7 @@ class CohortParas(object):
         self.pid_name:str=None     #"PatientID"  #::str:: category name for PatientID
         self.targets:list=None     #  ["target1","target2"]  #::list::  list of labels can read from csv
         self.targets_idx:int=0    #::int:: index of target in targets list when you only need one
-        self.task_additional_idx:str = ["Center of sequencing"] # additional content into task csv files
+        self.task_additional_idx:str = None # additional content into task csv files
         # for cohort with r file
         self.r_key:str = None          #::str:: key for cohort in r file    
         self.with_transpose:bool = False #::bool:: if transpose the cohort matrix
