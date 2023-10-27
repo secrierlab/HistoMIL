@@ -140,19 +140,6 @@ class DataCohort:
         df_train = df.iloc[idx_lists[i_th][0].tolist()]
         df_test = df.iloc[idx_lists[i_th][1].tolist()]
 
-        # modified
-        label_counts = df_test.value_counts(target_label).to_dict()
-        # get name with smallest count nb
-        list_of_key = list(label_counts.keys())
-        list_of_value = list(label_counts.values())
-        position = list_of_value.index(min(label_counts.values())) 
-        key_name = list_of_key[position]
-        df_add1=df_test[df_test[target_label]==key_name].sample(frac=.50) #[df_test["HRD"]==key_name]
-        df_add2=df_test[df_test[target_label]!=key_name].sample(frac=.50)
-        df_train=pd.concat([df_train,df_add1,df_add2])
-        df_train = df_train.sample(frac=1).reset_index(drop=True)
-        # modified end
-
         self.data = {"all_df":df,"train":df_train,"test":df_test,"idxs":idx_lists}
 
     def get_task_datalist(self,phase:str="train"):
