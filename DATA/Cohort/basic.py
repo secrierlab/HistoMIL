@@ -296,7 +296,9 @@ class TaskCohort(Cohort):
         source_table = tableWorker(loc = Path(f"{str(self.idx_root)}/{self.task_file}"))
         source_table.read_table()
         # merge source table with local table
-        patinet_df = self.sort_patientID(table = source_table,pid_name=self.pid_name,labels_name=self.labels_name)
+        # add source hospital name
+        content_names = self.cohort_paras.task_additional_idx+self.labels_name
+        patinet_df = self.sort_patientID(table = source_table,pid_name=self.pid_name,labels_name=content_names)
         self.table.df = self.merge_with_PID( df_1=local_df,
                                             df_2=patinet_df)
         # write to file
