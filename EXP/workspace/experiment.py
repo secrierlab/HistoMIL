@@ -88,8 +88,9 @@ class Experiment:
             self.task_concepts = self.paras.dataset_para.concepts#["task_concepts"]
             
             self.data_cohort.setup_localcohort()
-            self.data_cohort.setup_taskcohort( 
-                                task_concepts=self.task_concepts)
+            if self.paras.cohort_para.cohort_file is not None:
+                self.data_cohort.setup_taskcohort( 
+                                    task_concepts=self.task_concepts)
             
         elif self.paras.main_data_source == "omic":
             logger.info("Exp:: Initialise omic cohort.")
