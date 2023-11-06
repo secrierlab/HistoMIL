@@ -1,5 +1,5 @@
 import logging
-log_level = logging.INFO
+log_level = logging.DEBUG
 logger = logging.getLogger("HistoMIL")
 # check if logger has been initialized
 if not logger.hasHandlers():

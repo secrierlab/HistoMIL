@@ -51,7 +51,7 @@ class Experiment:
     def cohort_slide_preprocessing(self,
                         df=None, # None means locol cohort,
                         concepts:list=["slide","tissue","patch",
-                                        "feature","nuclei","graph"],
+                                        "feature"],
                         is_fast:bool=True,force_calc:bool=False,):
         """
         Preprocess cohort data 
