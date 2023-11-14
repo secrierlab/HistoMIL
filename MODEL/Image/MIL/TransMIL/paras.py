@@ -15,6 +15,7 @@ class TransMILParas:
     encoder_name="pre-calculated"# or name of encoder",
     encoder_pretrained:bool = True # or False
     feature_size:int=512
+    embed_size:int=None
 
     n_classes:int=2
     norm_layer=nn.LayerNorm

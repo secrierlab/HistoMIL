@@ -13,29 +13,32 @@ import torch.nn.functional as F
 from HistoMIL.MODEL.Image.Modules.NystromAttention import NystromAttention
 from HistoMIL.MODEL.Image.MIL.utils import FeatureNet
 from HistoMIL.MODEL.Image.MIL.TransMIL.paras import TransMILParas
+from HistoMIL import logger
 ######################################################################################
 #        pytorch module to define structure
 ######################################################################################
 class TransMIL(nn.Module):
     def __init__(self,paras:TransMILParas):
         super(TransMIL, self).__init__()
+        logger.info(f"init TransMIL with paras: {paras}")
         self.paras = paras
         backbone = paras.encoder_name
         pretrained = paras.encoder_pretrained
         feature_size = paras.feature_size
+        embed_size = paras.embed_size if paras.embed_size is not None else int(feature_size//2)
         n_classes = paras.class_nb
         norm_layer = paras.norm_layer
         #--------> feature encoder
         self.encoder = FeatureNet(backbone,pretrained=pretrained)
         #--------> transformer aggregation
-        self.pos_layer = PPEG(dim=int(feature_size//2))
-        self._fc1 = nn.Sequential(nn.Linear(feature_size, int(feature_size//2)), nn.ReLU())
-        self.cls_token = nn.Parameter(torch.randn(1, 1, int(feature_size//2)))
+        self.pos_layer = PPEG(dim=embed_size)
+        self._fc1 = nn.Sequential(nn.Linear(feature_size, embed_size), nn.ReLU())
+        self.cls_token = nn.Parameter(torch.randn(1, 1, embed_size))
         self.n_classes = n_classes
-        self.layer1 = TransLayer(dim=int(feature_size//2),norm_layer=norm_layer)
-        self.layer2 = TransLayer(dim=int(feature_size//2),norm_layer=norm_layer)
-        self.norm = nn.LayerNorm(int(feature_size//2))
-        self._fc2 = nn.Linear(int(feature_size//2), self.n_classes)
+        self.layer1 = TransLayer(dim=embed_size,norm_layer=norm_layer)
+        self.layer2 = TransLayer(dim=embed_size,norm_layer=norm_layer)
+        self.norm = nn.LayerNorm(embed_size)
+        self._fc2 = nn.Linear(embed_size, self.n_classes)
 
 
     def forward(self, data):

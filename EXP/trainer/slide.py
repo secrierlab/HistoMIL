@@ -33,15 +33,20 @@ class pl_slide_trainer(pl_base_trainer):
         from HistoMIL.MODEL.Image.init import create_img_model,create_img_mode_paras
         self.model_name = self.trainer_para.model_name # specify algorithm/model for training
         if self.trainer_para.model_para is None:
+            logger.info(f"Trainer:: Use default model paras when self.trainer_para.model_para is None")
             self.trainer_para.model_para = create_img_mode_paras(self.trainer_para)
         # init some paras from dataset
         # make sure the model_para is consistent with trainer_para
         self.trainer_para.model_para.class_nb = self.dataset_para.class_nb
-        if self.trainer_para.model_para.encoder_name == "pre-calculated":
+        if self.trainer_para.use_pre_calculated :
+            logger.info(f"Trainer:: Use pre-calculated feature: {self.trainer_para.model_para.encoder_name}")
+            self.trainer_para.model_para.encoder_name = "pre-calculated"
             self.trainer_para.model_para.encoder_pretrained = True
         else:
+            logger.info(f"Trainer:: Use backbone: {self.trainer_para.model_para.encoder_name} ")
             self.trainer_para.model_para.encoder_name = self.trainer_para.backbone_name
         # create image model
+        logger.info(f"Trainer:: Create image model with paras: {self.trainer_para.model_para}")
         self.pl_model = create_img_model(
                             train_paras=self.trainer_para,
                             optloss_paras=self.opt_para,

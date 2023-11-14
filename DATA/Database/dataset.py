@@ -31,6 +31,7 @@ from HistoMIL.DATA.FileIO.h5_worker import patchImageStorage
 from HistoMIL.DATA.FileIO.pkl_worker import load_pkl
 from HistoMIL.EXP.paras.slides import DEFAULT_CONCEPT_PARAS, CollectorParas
 from HistoMIL.EXP.paras.dataset import DatasetParas
+from HistoMIL import logger
 ##############################################################################
 #             define MIL Bags for MIL
 ###############################################################################
@@ -41,6 +42,7 @@ class MILFeatureSet(Dataset):
 
                         collector_paras:CollectorParas,
                         sample_nb:int=None):
+        logger.info(f"Dataset::Using {collector_paras.feature.model_name} feature for MIL.")
         self.locs = data_locs
         self.data = data_list
 

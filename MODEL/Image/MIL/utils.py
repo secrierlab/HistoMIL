@@ -1,11 +1,12 @@
 import torch
 import timm
-
+from HistoMIL import logger
 #--------> commonly used feature encoder function for MIL
 
 class FeatureNet(torch.nn.Module):
     def __init__(self,model_name,pretrained:bool=True):
         super(FeatureNet, self).__init__()
+        logger.info(f"FeatureNet:: Use: {model_name} ")
         self.name = model_name
         if model_name == "pre-calculated":
             self.pre_trained = None

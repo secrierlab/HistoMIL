@@ -10,6 +10,7 @@ class PLTrainerParas(object):
     model_para=None               # paras for create basic torch model
 
     backbone_name:str = "resnet18" # "resnet18" or "resnet50"
+    use_pre_calculated:bool = False # if True, will use pre-calculated feature
     model_out_list:list = ["logits","Y_prob","Y_hat",] # check needed model output
     
     #------> parameters for pl protocol
