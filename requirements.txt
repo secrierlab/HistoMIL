@@ -1,0 +1,11 @@
+pytorch-lightning >=1.9.0, <2.0.0
+pandas
+openslide-python
+torchvision
+imageio
+matplotlib
+timm
+scikit-learn
+opencv-python
+h5py
+wandb
