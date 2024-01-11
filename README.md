@@ -67,9 +67,7 @@ conda install pytorch pytorch-cuda=11.7 -c pytorch -c nvidia
 Next, install the required Python packages with pip:
 
 ```bash
-pip install pytorch-lightning=1.9
-pip install pandas openslide-python torchvision imageio matplotlib timm scikit-learn opencv-python h5py
-pip install wandb
+pip install -r requirements.txt
 ```
 This will install all the packages listed in requirements.txt, including HistoMIL itself.
 
