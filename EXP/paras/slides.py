@@ -38,7 +38,7 @@ class TissueParas(object):
 
     #------> parameters for otsu
     use_otsu:bool = True
-    sthresh:int = 20   
+    sthresh:int = 8   
     sthresh_up:int = 255
 
     
